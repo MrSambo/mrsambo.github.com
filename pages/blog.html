@@ -1,0 +1,22 @@
+---
+layout: page
+title: "Blog"
+description: ""
+---
+{% include JB/setup %}
+
+{% for page in site.posts %}
+	<div class="post_list">
+		<div class="small-12 columns text-center post_title"><h2>{{page.title}}</h2></div>
+		<div class="row post_info">
+			<div class="large-4 columns"><h5>{{page.date | date_to_string}}</h5></div>
+			<div class="large-4 columns text-right"> <h5> {{page.categories}} </h5> </div>
+		</div>
+		<br>
+		
+		<small>
+			<h4>{{page.content | prettify | truncatewords: 50 }}</h4> 
+			<br><div class="read_more">Read More > > </div>
+		</small>
+	</div>
+{% endfor %}
