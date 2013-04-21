@@ -4,19 +4,31 @@ title: "Blog"
 description: ""
 ---
 {% include JB/setup %}
-
 {% for page in site.posts %}
 	<div class="post_list">
 		<div class="small-12 columns text-center post_title"><h2>{{page.title}}</h2></div>
-		<div class="row post_info">
-			<div class="large-4 columns"><h5>{{page.date | date_to_string}}</h5></div>
-			<div class="large-4 columns text-right"> <h5> {{page.categories}} </h5> </div>
-		</div>
 		<br>
-		
-		<small>
-			<h4>{{page.content | prettify | truncatewords: 50 }}</h4> 
-			<br><div class="read_more">Read More > > </div>
-		</small>
+			<p>{{page.content | prettify | truncatewords: 50 }}</p> 
+			<div class="more">Read More   <span class="iconic read_more"></span> </div>
+		<br>
+		<div class="row post_info">
+			<div class="large-4 columns"><h6><span class="iconic calendar"></span> {{page.date | date_to_string}}</h6></div>
+			<div class="large-8 columns text-right">
+				<div class="post_tags">
+					<ul class="inline-list">
+						{% assign tags_list = page.tags %}
+		        		<!-- {% assign group = 'navigation' %} -->
+		        		{% include custom/tags_list %}
+		        		<li class="tag-icon"><span class="iconic tag_stroke"></span></li>
+		        	</ul>
+		        </div>
+			</div>
+<!-- 			<div class="large-4 columns text-right"> 
+				<h5>
+					<span class="iconic tag_stroke"></span> 
+					{{page.categories}} 
+				</h5>
+			</div> -->
+		</div>
 	</div>
 {% endfor %}
