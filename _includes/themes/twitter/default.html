@@ -12,8 +12,14 @@
 
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/normalize.css">
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/foundation.css">
+  <!--      FONTS         -->
+  <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
+  <!--      FONTS         -->
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/foundation_icons_all/foundation_icons_social/stylesheets/social_foundicons.css">
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/iconic stroke/iconic_stroke.css">
+  
+  
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/custom.css"
   
   
@@ -47,10 +53,25 @@
         <h5><em>Pure.Quality.Mixes</em></h5>
       </div>
       <div class="nav">
-        <a href="/pages/mixes.html">Mixes</a>
-        <a href="/pages/blog.html"> Blog</a>
-        <a href="/pages/contact.html"> Contact</a>
+        {% if page.title == "Blog" %}
+          <a href="/pages/mixes.html">Our Mixes</a>
+          <a href="/pages/blog.html" id="activelink"> Stuff We Like</a>
+          <a href="/pages/contact.html"> Contact</a>
+        {% elsif page.title == "Mixes" %}
+          <a href="/pages/mixes.html" id="activelink">Our Mixes</a>
+          <a href="/pages/blog.html"> Stuff We Like</a>
+          <a href="/pages/contact.html"> Contact</a>
+        {% elsif page.title == "Contact" %}
+          <a href="/pages/mixes.html">Our Mixes</a>
+          <a href="/pages/blog.html"> Stuff We Like</a>
+          <a href="/pages/contact.html"  id="activelink"> Contact</a>
+        {% else %}
+          <a href="/pages/mixes.html">Our Mixes</a>
+          <a href="/pages/blog.html"> Stuff We Like</a>
+          <a href="/pages/contact.html" > Contact</a>
+        {% endif %}
       </div>
+
     </div>
   </div>
   <div class="container">

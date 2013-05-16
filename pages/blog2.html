@@ -1,0 +1,71 @@
+---
+layout: page
+title: "Blog"
+description: ""
+---
+{% include JB/setup %}
+{% for page in site.posts %}
+	<div class="large-12 columns post_list">
+		<div class="large-2 columns post-data">
+			<div class="post-type2">
+				{% if page.category == "mix" %}
+					<h2><span class="iconic headphones"></span></h2>
+				{% endif %}
+				{% if page.category == "blog post" %}
+					<h2><span class="iconic left_quote"></span></h2>
+				{% endif %}
+				{% if page.category == "vids" %}
+					<h2><span class="iconic movie"></span></h2>
+				{% endif %}	
+				{% if page.category == "pics" %}
+					<h2><span class="iconic camera"></span></h2>
+				{% endif %}	
+			</div>
+			<hr>
+			<div class="date2">
+				<span class="iconic clock"></span> <br><span class="text">{{page.date | date_to_string}}</span></h6>
+			</div>
+			<br>
+			<div><span class="iconic pen"></span> <br> <span class="text">Heatwave</span></div>
+			<br>
+			<hr>
+			<!-- <div class="post_tags">
+				<span class="iconic tag_stroke"></span>
+				<small><ul class="inline-list">
+									{% assign tags_list = page.tags %}
+					        		<!-- {% assign group = 'navigation' %} 
+					        		{% include custom/tags_list %}
+					        	</ul></small>
+	        </div> -->
+	        <div class="share_buttons">
+	        	<!-- <span class="iconic share"></span><br> -->
+	        	<div class="social_button">
+	        		<img src="{{ASSET_PATH}}twitter/foundation/img/twitter.png" class="share-icon"alt="">
+	        		<span class="social_hidden_tweet">Test</span>
+	        	</div>
+				<div class="social_button">
+	        			<img src="{{ASSET_PATH}}twitter/foundation/img/facebook.png" class="share-icon" alt="">
+	        	</div>
+	        </div>
+			<!-- <div class="share-menu">
+				<p>Share</p>
+				<div class="share-menu-reveal">
+						<i class="foundicon-twitter"></i>
+            			<i class="foundicon-instagram"></i>
+            			<i class="foundicon-facebook"></i>
+				</div>
+			</div> -->
+		</div>
+		<div class="large-10 columns">
+			<div class="post_title">
+				<h2><a href="{{page.url}}">{{page.title}}</a></h2>
+			</div> 
+			<br>
+			<div class="post_info">
+				<p>{{page.content | prettify | truncatewords: 50 }}</p> 
+				<div class="more"><a href="{{page.url}}">Read More</a></div>
+			</div>
+		</div>
+		
+	</div>
+{% endfor %}

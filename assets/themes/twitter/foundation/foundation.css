@@ -2625,6 +2625,7 @@ form.custom {
         background-color: rgba(0, 0, 0, 0.6);
         color: #fff;
         width: 100%;
+        
         padding: 10px 14px;
         font-size: 0.875em; }
         .orbit-container .orbit-slides-container > * .orbit-caption * {
@@ -2641,7 +2642,8 @@ form.custom {
     top: 10px;
     right: 10px;
     height: 6px;
-    width: 100px; }
+    width: 100px;}
+
     .orbit-container .orbit-timer .orbit-progress {
       height: 100%;
       background-color: black;
