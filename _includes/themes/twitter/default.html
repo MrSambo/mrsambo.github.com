@@ -15,6 +15,7 @@
   <!--      FONTS         -->
   <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
   <!--      FONTS         -->
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/foundation_icons_all/foundation_icons_social/stylesheets/social_foundicons.css">
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/iconic stroke/iconic_stroke.css">
@@ -24,6 +25,7 @@
   
   
   <script src="{{ ASSET_PATH }}/foundation/js/vendor/custom.modernizr.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
   <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 </head>
@@ -46,7 +48,7 @@
       </ul>
     </div>
   </div> -->
-  <div class="row">
+  <!-- <div class="row">
     <div class="text-center large-12 columns header">
       <div class="logo">
         <a href = "/"><h1>Fatalic Sounds</h1></a>
@@ -57,24 +59,70 @@
           <a href="/pages/mixes.html">Our Mixes</a>
           <a href="/pages/blog.html" id="activelink"> Stuff We Like</a>
           <a href="/pages/contact.html"> Contact</a>
+          <a href="/pages/contact.html"> About Us</a>
         {% elsif page.title == "Mixes" %}
           <a href="/pages/mixes.html" id="activelink">Our Mixes</a>
           <a href="/pages/blog.html"> Stuff We Like</a>
           <a href="/pages/contact.html"> Contact</a>
+          <a href="/pages/contact.html"> About Us</a>
         {% elsif page.title == "Contact" %}
           <a href="/pages/mixes.html">Our Mixes</a>
           <a href="/pages/blog.html"> Stuff We Like</a>
           <a href="/pages/contact.html"  id="activelink"> Contact</a>
+          <a href="/pages/contact.html"> About Us</a>
         {% else %}
           <a href="/pages/mixes.html">Our Mixes</a>
           <a href="/pages/blog.html"> Stuff We Like</a>
           <a href="/pages/contact.html" > Contact</a>
+          <a href="/pages/contact.html"> About Us</a>
         {% endif %}
       </div>
-
+    </div>
+  </div> -->
+  <!-- <div class = "img">
+      <img src="{{ASSET_PATH}}/foundation/img/header.jpg" alt="">
+  </div> -->
+  <nav class="top-bar">
+    <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">Fatalic Sounds!</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>      
+      <section class="top-bar-section">
+        <ul class="right navbar">
+          <li class="divider hide-for-small"></li>
+          <li>
+            <a href="/pages/blog2.html">Blog</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="/pages/mixes.html">Mixes</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="/">About Us</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="/pages/contact.html">Contact</a>
+          </li>
+          <li class="divider"></li>
+        </ul>
+      </section>
+  </nav>
+  <div class="row">
+    <div class="large-12 columns">
+      <nav id = "fixedbar">
+        <div id="fixednav" class="large-9 columns text-center">
+          <a href="/pages/blog2.html">Blog</a>
+          <a href="/pages/mixes.html">Mixes</a>
+          <a href="/pages/contact.html">Contact</a>
+        </div>
+      </nav>
     </div>
   </div>
-  <div class="container">
+  <div id="container">
     {{ content }}  
   </div>
   
@@ -139,9 +187,29 @@
 
   
   <script src="{{ASSET_PATH}}/foundation/js/foundation.min.js"></script>
+  <script src="{{ASSET_PATH}}/foundation/js/foundation/foundation.topbar.js"></script>
   <script src="{{ASSET_PATH}}/foundation/js/foundation/foundation.tooltips.js"></script>
   <script>
     $(document).foundation();
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#navigation a, #fixedbar a').on('click', function(e) {
+        e.preventDefault();
+      });
+      
+      $(window).on('scroll',function() {
+        var scrolltop = $(this).scrollTop();
+
+        if(scrolltop >= 80) {
+          $('#fixedbar').slideDown(250);
+        }
+        
+        else if(scrolltop <= 100) {
+          $('#fixedbar').slideUp(100);
+        }
+      });
+    });
   </script>
   <!-- End Footer -->
   {% include JB/analytics %}
