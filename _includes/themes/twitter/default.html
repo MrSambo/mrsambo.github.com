@@ -12,11 +12,17 @@
 
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/normalize.css">
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/foundation.css">
+
+
   <!--      FONTS         -->
   <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
   <!--      FONTS         -->
+
+
+  
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/foundation_icons_all/foundation_icons_social/stylesheets/social_foundicons.css">
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/iconic stroke/iconic_stroke.css">
   
@@ -26,6 +32,7 @@
   
   <script src="{{ ASSET_PATH }}/foundation/js/vendor/custom.modernizr.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- <script src="{{ ASSET_PATH }}/js/grayscale.js"></script> -->
   <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
   <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 </head>
@@ -111,17 +118,14 @@
         </ul>
       </section>
   </nav>
-  <div class="row">
-    <div class="large-12 columns">
+
       <nav id = "fixedbar">
-        <div id="fixednav" class="large-9 columns text-center">
+        <div id="fixednav" class="text-center">
           <a href="/pages/blog2.html">Blog</a>
           <a href="/pages/mixes.html">Mixes</a>
           <a href="/pages/contact.html">Contact</a>
         </div>
       </nav>
-    </div>
-  </div>
   <div id="container">
     {{ content }}  
   </div>
@@ -195,20 +199,21 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('#navigation a, #fixedbar a').on('click', function(e) {
-        e.preventDefault();
       });
       
-      $(window).on('scroll',function() {
-        var scrolltop = $(this).scrollTop();
+      if((document).width > 300) {
+        $(window).on('scroll',function() {
+          var scrolltop = $(this).scrollTop();
 
-        if(scrolltop >= 80) {
-          $('#fixedbar').slideDown(250);
-        }
-        
-        else if(scrolltop <= 100) {
-          $('#fixedbar').slideUp(100);
-        }
-      });
+          if(scrolltop >= 80) {
+            $('#fixedbar').slideDown(250);
+          }
+          
+          else if(scrolltop <= 100) {
+            $('#fixedbar').slideUp(100);
+          }
+        });
+      };
     });
   </script>
   <!-- End Footer -->

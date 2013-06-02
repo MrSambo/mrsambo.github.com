@@ -57,9 +57,14 @@ description: ""
 			</div> -->
 		</div>
 		<div class="large-10 columns">
-			<div class="post_title">
-				<h2><a href="{{page.url}}">{{page.title}}</a></h2>
-			</div> 
+			<div class="row large-12 columns">
+				<div class="post_title">
+							<h2><a href="{{page.url}}">{{page.title}}</a></h2>
+						</div>
+						<div class="post-image">
+							<img src="http://lorempixel.com/350/250/sports" alt="notFound">
+						</div> 
+			</div>
 			<br>
 			<div class="post_info">
 				<p>{{page.content | prettify | truncatewords: 50 }}</p> 
