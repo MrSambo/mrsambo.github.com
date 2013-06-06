@@ -19,10 +19,12 @@
   <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Domine' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400' rel='stylesheet' type='text/css'>
   <!--      FONTS         -->
 
 
-  
+
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/foundation_icons_all/foundation_icons_social/stylesheets/social_foundicons.css">
   <link rel="stylesheet" href="{{ASSET_PATH}}/foundation/iconic stroke/iconic_stroke.css">
   
@@ -89,43 +91,42 @@
   <!-- <div class = "img">
       <img src="{{ASSET_PATH}}/foundation/img/header.jpg" alt="">
   </div> -->
-  <nav class="top-bar">
-    <ul class="title-area">
-        <li class="name">
-          <h1><a href="/">Fatalic Sounds!</a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>      
-      <section class="top-bar-section">
-        <ul class="right navbar">
-          <li class="divider hide-for-small"></li>
-          <li>
-            <a href="/pages/blog2.html">Blog</a>
+  <div class="fixed">
+    <nav class="top-bar">
+      <ul class="title-area">
+          <li class="name">
+            <h1><a href="/">Fatalic Sounds!</a></h1>
           </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/pages/mixes.html">Mixes</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/">About Us</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/pages/contact.html">Contact</a>
-          </li>
-          <li class="divider"></li>
-        </ul>
-      </section>
-  </nav>
-
-      <nav id = "fixedbar">
-        <div id="fixednav" class="text-center">
-          <a href="/pages/blog2.html">Blog</a>
-          <a href="/pages/mixes.html">Mixes</a>
-          <a href="/pages/contact.html">Contact</a>
-        </div>
-      </nav>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>      
+        <section class="top-bar-section">
+          <ul class="right navbar">
+            <li class="divider hide-for-small"></li>
+            <li>
+              <a href="/pages/blog2.html">Blog</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/pages/mixes.html">Mixes</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/">About Us</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/pages/contact.html">Contact</a>
+            </li>
+            <li class="divider"></li>
+          </ul>
+        </section>
+    </nav>
+  </div>
+  <div class="logo_space">
+    <div class="text-center">
+      <img src="{{ ASSET_PATH }}/foundation/img/logo.png" alt="logo">
+    </div>
+  </div>
   <div id="container">
     {{ content }}  
   </div>
@@ -206,11 +207,13 @@
           var scrolltop = $(this).scrollTop();
 
           if(scrolltop >= 80) {
-            $('#fixedbar').slideDown(250);
+            // $('#fixedbar').slideDown(250);
+            $('.top-bar').fadeTo('fast', 0.6);
           }
           
           else if(scrolltop <= 100) {
-            $('#fixedbar').slideUp(100);
+            // $('.top-bar').slideUp(100);
+            $('.top-bar').fadeTo('fast', 1.0);
           }
         });
       };
